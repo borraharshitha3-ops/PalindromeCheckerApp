@@ -1,6 +1,10 @@
-class PalindromeChecker{
+interface PalindromeStrategy{
+    boolean check(String word);
+}
 
-    boolean checkPalindrome(String word){
+class StackStrategy implements PalindromeStrategy{
+
+    public boolean check(String word){
 
         String reversed = "";
 
@@ -17,11 +21,11 @@ public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
-        PalindromeChecker checker = new PalindromeChecker();
+        PalindromeStrategy strategy = new StackStrategy();
 
-        String word = "level";
+        String word = "radar";
 
-        if(checker.checkPalindrome(word)){
+        if(strategy.check(word)){
             System.out.println("Palindrome");
         }else{
             System.out.println("Not Palindrome");
