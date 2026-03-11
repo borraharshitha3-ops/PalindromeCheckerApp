@@ -1,23 +1,18 @@
 public class PalindromeCheckerApp {
 
-    static boolean isPalindrome(String str, int start, int end){
-
-        if(start >= end){
-            return true;
-        }
-
-        if(str.charAt(start) != str.charAt(end)){
-            return false;
-        }
-
-        return isPalindrome(str, start + 1, end - 1);
-    }
-
     public static void main(String[] args) {
 
-        String word = "madam";
+        String word = "Madam";
 
-        if(isPalindrome(word,0,word.length()-1)){
+        word = word.replaceAll("\\s+","").toLowerCase();
+
+        String reversed = "";
+
+        for(int i = word.length()-1; i >= 0; i--){
+            reversed += word.charAt(i);
+        }
+
+        if(word.equals(reversed)){
             System.out.println("Palindrome");
         }else{
             System.out.println("Not Palindrome");
