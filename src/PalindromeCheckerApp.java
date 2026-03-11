@@ -1,10 +1,6 @@
-public class PalindromeCheckerApp {
+class PalindromeChecker{
 
-    public static void main(String[] args) {
-
-        String word = "Madam";
-
-        word = word.replaceAll("\\s+","").toLowerCase();
+    boolean checkPalindrome(String word){
 
         String reversed = "";
 
@@ -12,7 +8,20 @@ public class PalindromeCheckerApp {
             reversed += word.charAt(i);
         }
 
-        if(word.equals(reversed)){
+        return word.equals(reversed);
+    }
+
+}
+
+public class PalindromeCheckerApp {
+
+    public static void main(String[] args) {
+
+        PalindromeChecker checker = new PalindromeChecker();
+
+        String word = "level";
+
+        if(checker.checkPalindrome(word)){
             System.out.println("Palindrome");
         }else{
             System.out.println("Not Palindrome");
