@@ -1,10 +1,6 @@
-interface PalindromeStrategy{
-    boolean check(String word);
-}
+public class PalindromeCheckerApp {
 
-class StackStrategy implements PalindromeStrategy{
-
-    public boolean check(String word){
+    static boolean checkPalindrome(String word){
 
         String reversed = "";
 
@@ -15,21 +11,23 @@ class StackStrategy implements PalindromeStrategy{
         return word.equals(reversed);
     }
 
-}
-
-public class PalindromeCheckerApp {
-
     public static void main(String[] args) {
 
-        PalindromeStrategy strategy = new StackStrategy();
+        String word = "madam";
 
-        String word = "radar";
+        long start = System.nanoTime();
 
-        if(strategy.check(word)){
+        boolean result = checkPalindrome(word);
+
+        long end = System.nanoTime();
+
+        if(result){
             System.out.println("Palindrome");
         }else{
             System.out.println("Not Palindrome");
         }
+
+        System.out.println("Execution Time: " + (end-start) + " ns");
 
     }
 }
